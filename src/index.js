@@ -1,8 +1,6 @@
 require('./stylesheets/main.scss');
-const $ = require('jquery');
 
-$(document).ready(function() {
-  $('h1').click(function() {
-    console.log('Yay you remember basic jQuery!');
-  });
-});
+var img = document.getElementById('galleryImg');
+img.src = require('./assets/gallery.png');
+
+const $ = require('jquery');

@@ -1,5 +1,9 @@
-body {
-  h1 {
-    color: red;
-  }
-}
+@import 'vars';
+@import 'mixins';
+@import 'reset';
+@import 'header';
+@import 'services';
+@import 'gallery';
+@import 'testimony';
+@import 'contact';
+@import 'footer';

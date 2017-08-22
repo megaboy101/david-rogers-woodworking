@@ -1,0 +1,36 @@
+.testimony {
+  background-image: url('../assets/testimony.png');
+  background-size: cover;
+
+  ul.quotes {
+    text-align: center;
+    padding-top: 100px;
+
+    li {
+      display: inline-block;
+      font-size: 35px;
+      color: $primary-light;
+      max-width: 550px;
+
+      span {
+        position: relative;
+        left: 35%;
+        font-size: 25px;
+      }
+    }
+  }
+
+  ul.icons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    li {
+      margin: 100px 20px;
+      background-color: $testimony-icon-inactive;
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+    }
+  }
+}

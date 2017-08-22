@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Loeb Site</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Raleway:500i|Tinos:400i" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -13,7 +14,7 @@
     <h2>"Bring me your ideas, let's see where we go"</h2>
   </header>
 
-  <div class="services">
+  <section class="services">
     <h1>My Services</h1>
     <ul>
       <li>
@@ -33,38 +34,61 @@
         <p>30+ years of professional building experience. You can be confident in my attention to aesthetic detail.</p>
       </li>
     </ul>
-  </div>
+  </section>
 
-  <div class="gallery"></div>
+  <section class="gallery">
+    <div class="images">
+      <button class="button button-left"></button>
+      <img id="galleryImg" src="gallery.png" alt="No gallery images available">
+      <button class="button button-right"></button>
+    </div>
+    <h2>Wardrobes</h2>
+  </section>
 
-  <div class="testimony">
-    <ul>
+  <section class="testimony">
+    <ul class="quotes">
       <li>
-        <blockquote>
-          "His skills are second to none. If you can imagine it, he can build it."
-          <span>- Jacob Bleser</span>
-        </blockquote>
+        "His skills are second to none. If you can imagine it, he can build it."<br/>
+        <span>- Jacob Bleser</span>
       </li>
     </ul>
-  </div>
+    <ul class="icons">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </section>
 
-  <div class="contact">
+  <section class="contact">
     <h2>Send an Inquiry</h2>
     <form action="/form_submit/" method="post">
-      Your name:<br/>
-      <input type="text" name="name" />
-      Email:<br/>
-      <input type="text" name="email" />
-      Phone Number:<br/>
-      <input type="text" name="phone" />
-      Company:<br/>
-      <input type="text" name="company" />
-      Message:<br/>
-      <input type="textarea" name="message" />
-      Submit:<br/>
-      <input type="submit" value="Submit" />
+      <div class="field">
+        <span>Your name:</span><br/>
+        <input type="text" name="name" />
+      </div>
+      <div class="field">
+        <span>Email:</span><br/>
+        <input type="text" name="name" />
+      </div>
+      <div class="field">
+        <span>Phone Number:</span><br/>
+        <input type="text" name="name" />
+      </div>
+      <div class="field">
+        <span>Company:</span><br/>
+        <input type="text" name="name" />
+      </div>
+      <div class="field message">
+        <span>Message:</span><br/>
+        <textarea name="message"></textarea>
+      </div>
+      <div class="field submit-button">
+        <input type="submit" name="name" />
+      </div>
     </form>
-  </div>
+  </section>
 
   <footer>
     <blockquote>
@@ -72,7 +96,7 @@
       enthusiasm that I would for projects in my own home. I look forward
       to reviewing your ideas and working with you to complete something
       that you can be truly proud of, which meets your expectations
-      functionally as well as visually."
+      functionally as well as visually."<br/>
       <span>- David</span>
     </blockquote>
     <div class="contact-info">

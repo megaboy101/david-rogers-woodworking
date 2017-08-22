@@ -1,0 +1,21 @@
+footer {
+  background-color: $primary-light;
+  text-align: center;
+
+  blockquote {
+    font-size: 30px;
+    padding: 0 15%;
+    color: $primary-mid;
+
+    span {
+      display: inline-block;
+      padding: 12px;
+    }
+  }
+
+  .contact-info {
+    padding: 20px;
+    font-size: 25px;
+    color: $primary-dark;
+  }
+}

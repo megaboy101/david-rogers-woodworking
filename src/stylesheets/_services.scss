@@ -1,0 +1,39 @@
+.services {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: $primary-light;
+  padding: 50px 0;
+
+  h1 {
+    color: $primary-dark;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $primary-dark;
+    width: 250px;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  li {
+    width: 250px;
+    text-align: center;
+
+    h4 {
+      font-size: 20px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: $primary-dark;
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: $primary-dark;
+    }
+  }
+}
