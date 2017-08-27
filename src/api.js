@@ -1,5 +1,3 @@
-var $ = require('jquery');
-
 var client = require('contentful').createClient({
   space: 'octbv27cogtl',
   accessToken:  'db16dc7bb4186ff2c5579cde6924a47765c7b1bbc18b65eb6826891e50051a52'
@@ -11,20 +9,25 @@ module.exports = function(content) {
       content_type: content
     })
     .then(function(data) {
+      var section = data.items[0].fields;
       switch(content) {
         case 'header':
-          res(parseHeader(data));
+          res(parseHeader(section));
           break;
         case 'services':
-          res(parseServices(data));
+          res(parseServices(section));
           break;
         case 'gallery':
-          res(parseGallery(data));
+          res(parseGallery(section));
           break;
         case 'testimony':
-          res(parseTestimony(data));
+          res(parseTestimony(section));
+          break;
+        case 'contact':
+          res(parseContact(section));
+          break;
         case 'footer':
-          res(parseFooter(data));
+          res(parseFooter(section));
       }
     });
   });
@@ -33,30 +36,54 @@ module.exports = function(content) {
 
 var parseHeader = function(data) {
   return {
-    // Parse that data!
+    title: data.title,
+    subTitle: data.subTitle
   };
 };
 
 var parseServices = function(data) {
   return {
-    // Parse that data!
+    header: data.header,
+    services: data.services.map(function(service) { return service.fields; })
   };
 }
 
 var parseGallery = function(data) {
+  var images = data.galleryImages.map(function(image) {
+    return {
+      category: image.fields.category,
+      image: image.fields.image.fields.file.url
+    };
+  });
+
   return {
-    // Parse that data!
+    images: images
   };
 }
 
 var parseTestimony = function(data) {
   return {
-    // Parse that data!
+    testimonies: data.testimonies.map(function(testimony) {
+      return {
+        quote: testimony.fields.quote,
+        author: testimony.fields.quoted
+      }
+    }),
+    backgroundImage: data.backgroundImage.fields.file.url
+  };
+}
+
+var parseContact = function(data) {
+  return {
+    header: data.header
   };
 }
 
 var parseFooter = function(data) {
   return {
-    // Parse that data!
+    endQuote: data.endQuote,
+    phoneNumber: data.phoneNumber,
+    quoteDedication: data.quoteDedication,
+    webAddress: data.webAddress
   };
 }

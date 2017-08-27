@@ -1,56 +1,60 @@
 .contact {
-  padding: 80px 80px;
-  padding-bottom: 0;
+  padding: 80px;
+  padding-bottom: 50px;
   background-color: $primary-light;
 
   h2 {
     font-size: 40px;
     text-transform: uppercase;
     color: $primary-dark;
+    font-family: $font-primary;
+    letter-spacing: 3px;
+    font-weight: 500;
   }
 
   form {
-    padding: 25px 0;
     display: flex;
-    flex-flow: column wrap;
-    height: 250px;
+    flex-flow: row wrap;
 
-    .field {
-      padding: 10px 10px 10px 0;
+    .field-set {
+      flex: 1;
+      flex-shrink: 0;
 
-      span {
-        color: $primary-dark;
-        font-size: 20px;
-        text-transform: uppercase;
-      }
+      .field {
+        padding: 10px 10px 10px 0;
 
-      input {
-        border: none;
-        background: none;
-        border-bottom: 2px solid $primary-mid;
-        padding-bottom: 5px;
-        width: 100%;
-        font-size: 15px;
-
-        &:focus {
-          outline: none;
+        span {
+          color: $primary-dark;
+          font-size: 18px;
+          text-transform: uppercase;
+          font-family: $font-primary;
+          font-weight: 400;
+          letter-spacing: 2px;
         }
-      }
 
-      textarea {
-        background: none;
-        border: 2px solid $primary-mid;
-        resize: none;
-        width: 100%;
-        height: 100%;
-      }
+        input {
+          border: none;
+          background: none;
+          border-bottom: 1px solid $primary-mid;
+          padding-bottom: 5px;
+          width: 100%;
+          font-size: 15px;
+          color: $primary-dark;
+          min-width: 300px;
 
-      input[type="submit"] {
-        border: none;
-        background-color: $primary-dark;
-        color: $primary-light;
-        width: 80px;
-        padding: 10px;
+          &:focus {
+            outline: none;
+          }
+        }
+
+        textarea {
+          background: none;
+          border: 2px solid $primary-mid;
+          resize: none;
+          width: 100%;
+          min-width: 300px;
+          height: 100px;
+        }
       }
     }
 
@@ -62,6 +66,32 @@
     .submit-button {
       align-self: flex-end;
       margin: 10px 0;
+    }
+  }
+
+  a {
+    display: inline-block;
+    border: none;
+    background-color: $primary-dark;
+    color: $primary-light;
+    width: 80px;
+    padding: 10px;
+    text-decoration: none;
+    font-family: $font-primary;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .contact {
+    padding: 30px;
+    padding-bottom: 50px;
+
+    h2 {
+      font-size: 25px;
+    }
+
+    form .field-set .field span {
+      font-size: 14px;
     }
   }
 }

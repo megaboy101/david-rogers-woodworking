@@ -4,13 +4,15 @@
 
   ul.quotes {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 120px;
 
     li {
       display: inline-block;
-      font-size: 35px;
+      font-size: 32px;
       color: $primary-light;
+      font-family: $font-quote;
       max-width: 550px;
+      margin: 0 15px;
 
       span {
         position: relative;
@@ -31,6 +33,31 @@
       width: 35px;
       height: 35px;
       border-radius: 100%;
+    }
+    
+    .current-icon {
+      background-color: $testimony-icon-active;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    ul.quotes {
+      li {
+        font-size: 25px;
+
+        span {
+          font-size: 20px;
+          position: static;
+        }
+      }
+    }
+
+    ul.icons {
+      li {
+        width: 25px;
+        height: 25px;
+        margin: 100px 15px;
+      }
     }
   }
 }

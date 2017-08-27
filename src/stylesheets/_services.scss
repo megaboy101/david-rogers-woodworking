@@ -3,10 +3,14 @@
   flex-flow: column nowrap;
   align-items: center;
   background-color: $primary-light;
-  padding: 50px 0;
+  padding: 60px 40px;
 
   h1 {
     color: $primary-dark;
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
     padding-bottom: 5px;
@@ -18,22 +22,30 @@
   ul {
     display: flex;
     flex-flow: row wrap;
+    padding: 0 15px;
   }
 
   li {
-    width: 250px;
+    min-width: 250px;
     text-align: center;
+    flex: 1;
+    flex-shrink: 0;
+    padding-bottom: 10px;
 
     h4 {
+      font-family: $font-primary;
       font-size: 20px;
       font-weight: 300;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: $primary-dark;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     p {
       color: $primary-dark;
+      font-family: $font-primary;
+      font-size: 15px;
     }
   }
 }

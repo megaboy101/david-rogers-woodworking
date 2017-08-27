@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loeb Site</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Raleway:500i|Tinos:400i" rel="stylesheet">
+</head>
+<body>
+  <header ng-controller="HeaderCtrl">
+    <h1>{{title}}</h1>
+    <hr/>
+    <h2>{{subTitle}}</h2>
+  </header>
+
+  <section ng-controller="ServiceCtrl" class="services">
+    <h1>{{header}}</h1>
+    <ul>
+      <li ng-repeat="service in services">
+        <h4>{{service.title}}</h4>
+        <p>{{service.description}}</p>
+      </li>
+    </ul>
+  </section>
+
+  <section ng-controller="GalleryCtrl" class="gallery">
+    <div class="images">
+      <button ng-click="previousImage()" class="button button-left"></button>
+      <img id="galleryImg" ng-src="{{currentImage.image}}" alt="No gallery images available">
+      <button ng-click="nextImage()" class="button button-right"></button>
+    </div>
+    <h2>{{currentImage.category}}</h2>
+  </section>
+
+  <section class="testimony" ng-controller="TestimonyCtrl">
+    <ul class="quotes">
+      <li>
+        {{currentTestimony.quote}}<br/>
+        <span>- {{currentTestimony.author}}</span>
+      </li>
+    </ul>
+    <ul class="icons">
+      <li ng-class="{'current-icon': currentTestimonyIndex == $index}" ng-click="setTestimony($index)" ng-repeat="item in testimonies"></li>
+    </ul>
+  </section>
+
+  <section class="contact" ng-controller="ContactCtrl">
+    <h2>{{header}}</h2>
+    <form>
+      <div class="field-set">
+        <div class="field">
+          <span>Your name:</span><br/>
+          <input ng-model="name" type="text" name="name" required/>
+        </div>
+        <div class="field">
+          <span>Email:</span><br/>
+          <input ng-model="email" type="email" name="name" required/>
+        </div>
+      </div>
+      <div class="field-set">
+        <div class="field">
+          <span>Phone Number:</span><br/>
+          <input ng-model="number" type="text" name="name" />
+        </div>
+        <div class="field">
+          <span>Company:</span><br/>
+          <input ng-model="company" type="text" name="name" />
+        </div>
+      </div>
+      <div class="field-set">
+      <div class="field message">
+          <span>Message:</span><br/>
+          <textarea ng-model="message" name="message" required></textarea>
+        </div>
+      </div>
+    </form>
+    <a ng-href={{formattedEmail()}}>Submit</a>
+  </section>
+
+  <footer ng-controller="FooterCtrl">
+    <blockquote>
+      {{endQuote}}<br/>
+      <span>- {{quoteDedication}}</span>
+    </blockquote>
+    <div class="contact-info">
+      {{webAddress}}<br/>
+      {{phoneNumber}}
+    </div>
+  </footer>
+
+  <script src="bundle.js"></script>
+</body>
+</html>

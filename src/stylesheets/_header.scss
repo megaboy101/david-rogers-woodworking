@@ -8,23 +8,46 @@ header {
   align-items: center;
 
   h1 {
-    @include fontWSize($font-primary, 600);
-    width: 50%;
-    font-size: 50px;
+    font-family: $font-primary;
+    font-weight: 500;
+    max-width: 800px;
+    font-size: 55px;
     color: $primary-light;
     text-transform: uppercase;
     line-height: 1.25;
+    letter-spacing: 3px;
     margin-bottom: 5px;
   }
 
+
+
   hr {
     width: 50%;
+    border: none;
+    border-bottom: 1px solid $primary-light;
   }
 
   h2 {
-    @include fontWSize($font-quote, 500);
+    font-family: $font-quote;
+    font-weight: 500;
     font-size: 25px;
     color: $primary-light;
     font-style: italic;
+  }
+
+  @media screen and (max-width: 515px) {
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    h1 {
+      font-size: 30px;
+    }
   }
 }

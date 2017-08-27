@@ -8,6 +8,8 @@
     text-align: center;
     padding: 0 15px;
     color: $primary-light;
+    font-family: $font-primary;
+    font-weight: 300;
     margin-top: 30px;
     font-size: 35px;
     border-bottom: 1px solid $primary-light;
@@ -32,6 +34,7 @@
       height: 0;
       border: none;
       outline: none;
+      margin: 0 10px;
     }
 
     .button-left {
@@ -44,6 +47,30 @@
       border-top: 80px solid rgba(0, 0, 0, 0);
       border-bottom: 80px solid rgba(0, 0, 0, 0);
       border-left: 60px solid $gallery-button-color;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .images {
+      img {
+        width: 300px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .images {
+      .button-left {
+        border-top: 40px solid rgba(0, 0, 0, 0);
+        border-bottom: 40px solid rgba(0, 0, 0, 0);
+        border-right: 30px solid $gallery-button-color;
+      }
+
+      .button-right {
+        border-top: 40px solid rgba(0, 0, 0, 0);
+        border-bottom: 40px solid rgba(0, 0, 0, 0);
+        border-left: 30px solid $gallery-button-color;
+      }
     }
   }
 }

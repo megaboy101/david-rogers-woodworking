@@ -6,6 +6,7 @@ footer {
     font-size: 30px;
     padding: 0 15%;
     color: $primary-mid;
+    font-family: $font-end-quote;
 
     span {
       display: inline-block;
@@ -14,8 +15,21 @@ footer {
   }
 
   .contact-info {
-    padding: 20px;
-    font-size: 25px;
+    padding: 20px 0 25px 0;
+    font-size: 20px;
     color: $primary-dark;
+    font-family: $font-primary;
+    letter-spacing: 2px;
+  }
+
+  @media screen and (max-width: 700px) {
+    blockquote {
+      font-size: 22px;
+      padding: 0 30px;
+    }
+
+    .contact-info {
+      font-size: 16px;
+    }
   }
 }
