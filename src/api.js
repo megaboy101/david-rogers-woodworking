@@ -35,9 +35,11 @@ module.exports = function(content) {
 
 
 var parseHeader = function(data) {
+  console.log(data);
   return {
     title: data.title,
-    subTitle: data.subTitle
+    subTitle: data.subTitle,
+    backgroundImage: data.backgroundImage.fields.file.url
   };
 };
 

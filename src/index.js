@@ -8,31 +8,38 @@ img.src = require('./assets/gallery.png');
 
 var app = angular.module('app', []);
 
-app.controller('HeaderCtrl', function($scope) {
+app.controller('HeaderCtrl', ['$scope', HeaderCtrl]);
+app.controller('ServiceCtrl', ['$scope', ServiceCtrl]);
+app.controller('GalleryCtrl', ['$scope', GalleryCtrl]);
+app.controller('TestimonyCtrl', ['$scope', TestimonyCtrl]);
+app.controller('ContactCtrl', ['$scope', ContactCtrl]);
+app.controller('FooterCtrl', ['$scope', FooterCtrl]);
+
+function HeaderCtrl($scope) {
 
   requestSection('header').then(function(data) {
+    $scope.backgroundImage = data.backgroundImage;
     $scope.title = data.title;
     $scope.subTitle = data.subTitle;
     $scope.$apply();
   });
-});
+};
 
-app.controller('ServiceCtrl', function($scope) {
+function ServiceCtrl($scope) {
   requestSection('services').then(function(data) {
     $scope.header = data.header;
     $scope.services = data.services;
     $scope.$apply();
   });
-});
+};
 
-app.controller('GalleryCtrl', function($scope) {
+function GalleryCtrl($scope) {
   var images = [],
       currentImageIndex = 0;
 
   requestSection('gallery').then(function(data) {
     images = data.images;
     $scope.currentImage = images[currentImageIndex];
-    console.log($scope.currentImage.image);
     $scope.$apply();
   });
 
@@ -43,13 +50,14 @@ app.controller('GalleryCtrl', function($scope) {
   $scope.previousImage = function() {
     $scope.currentImage = images[currentImageIndex--];
   }
-});
+};
 
-app.controller('TestimonyCtrl', function($scope) {
+function TestimonyCtrl($scope) {
   $scope.testimonies = [];
 
   requestSection('testimony').then(function(data) {
     $scope.testimonies = data.testimonies;
+    $scope.backgroundImage = data.backgroundImage;
     $scope.currentTestimony = $scope.testimonies[0];
     $scope.currentTestimonyIndex = 0;
     $scope.$apply();
@@ -59,9 +67,9 @@ app.controller('TestimonyCtrl', function($scope) {
     $scope.currentTestimony = $scope.testimonies[index];
     $scope.currentTestimonyIndex = index;
   };
-});
+};
 
-app.controller('ContactCtrl', function($scope) {
+function ContactCtrl($scope) {
   $scope.name = "";
   $scope.number = "";
   $scope.company = "";
@@ -80,9 +88,9 @@ app.controller('ContactCtrl', function($scope) {
       currentMessage.split(" ").join("%20")
     );
   }
-});
+};
 
-app.controller('FooterCtrl', function($scope) {
+function FooterCtrl($scope) {
   requestSection('footer').then(function(data) {
     $scope.endQuote = data.endQuote;
     $scope.quoteDedication = data.quoteDedication;
@@ -90,4 +98,4 @@ app.controller('FooterCtrl', function($scope) {
     $scope.phoneNumber = data.phoneNumber;
     $scope.$apply();
   });
-});
+};

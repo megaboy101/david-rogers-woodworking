@@ -1,5 +1,5 @@
 .testimony {
-  background-image: url('../assets/testimony.png');
+  //background-image: url('../assets/testimony.png');
   background-size: cover;
 
   ul.quotes {
@@ -34,7 +34,7 @@
       height: 35px;
       border-radius: 100%;
     }
-    
+
     .current-icon {
       background-color: $testimony-icon-active;
     }

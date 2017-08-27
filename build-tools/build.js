@@ -18,7 +18,7 @@ webpack(config).run((err, stats) => {
     return 1;
   }
 
-  if (jsonStats.hasWarnings) {
+  if (buildStats.hasWarnings) {
 		console.log('Loading with warnings.');
 	}
 

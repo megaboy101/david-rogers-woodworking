@@ -32,7 +32,6 @@ module.exports = {
 
 	module: {
 		loaders: [
-			{test: /\.js$/, exclude: /node_modules/, loader: ['babel-loader']},
 			{test: /\.css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('css?sourceMap')},
 			{test: /\.scss$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader', 'sass-loader']})},
 			{test: /\.(png|jpg)$/, loader: ['url-loader']}

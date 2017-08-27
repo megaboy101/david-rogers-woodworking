@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Raleway:500i|Tinos:400i" rel="stylesheet">
 </head>
 <body>
-  <header ng-controller="HeaderCtrl">
+  <header ng-style="{'background-image': 'url('+backgroundImage+')'}" ng-controller="HeaderCtrl">
     <h1>{{title}}</h1>
     <hr/>
     <h2>{{subTitle}}</h2>
@@ -33,7 +33,7 @@
     <h2>{{currentImage.category}}</h2>
   </section>
 
-  <section class="testimony" ng-controller="TestimonyCtrl">
+  <section ng-style="{'background-image': 'url('+backgroundImage+')'}" class="testimony" ng-controller="TestimonyCtrl">
     <ul class="quotes">
       <li>
         {{currentTestimony.quote}}<br/>
