@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,104 +8,84 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Raleway:500i|Tinos:400i" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>David Rogers Woodworking Designs</h1>
+  <header ng-controller="HeaderCtrl">
+    <h1>{{title}}</h1>
     <hr/>
-    <h2>"Bring me your ideas, let's see where we go"</h2>
+    <h2>{{subTitle}}</h2>
   </header>
 
-  <section class="services">
-    <h1>My Services</h1>
+  <section ng-controller="ServiceCtrl" class="services">
+    <h1>{{header}}</h1>
     <ul>
-      <li>
-        <h4>Consultation</h4>
-        <p>Get a quote or have an idea professionally assessed.</p>
-      </li>
-      <li>
-        <h4>Installation</h4>
-        <p>I set my day of installation contingent on your schedule.</p>
-      </li>
-      <li>
-        <h4>Design</h4>
-        <p>Receive quality woodworking designs drawn to your specifications.</p>
-      </li>
-      <li>
-        <h4>Craftsmanship</h4>
-        <p>30+ years of professional building experience. You can be confident in my attention to aesthetic detail.</p>
+      <li ng-repeat="service in services">
+        <h4>{{service.title}}</h4>
+        <p>{{service.description}}</p>
       </li>
     </ul>
   </section>
 
-  <section class="gallery">
+  <section ng-controller="GalleryCtrl" class="gallery">
     <div class="images">
-      <button class="button button-left"></button>
-      <img id="galleryImg" src="gallery.png" alt="No gallery images available">
-      <button class="button button-right"></button>
+      <button ng-click="previousImage()" class="button button-left"></button>
+      <img id="galleryImg" ng-src="{{currentImage.image}}" alt="No gallery images available">
+      <button ng-click="nextImage()" class="button button-right"></button>
     </div>
-    <h2>Wardrobes</h2>
+    <h2>{{currentImage.category}}</h2>
   </section>
 
-  <section class="testimony">
+  <section class="testimony" ng-controller="TestimonyCtrl">
     <ul class="quotes">
       <li>
-        "His skills are second to none. If you can imagine it, he can build it."<br/>
-        <span>- Jacob Bleser</span>
+        {{currentTestimony.quote}}<br/>
+        <span>- {{currentTestimony.author}}</span>
       </li>
     </ul>
     <ul class="icons">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li ng-class="{'current-icon': currentTestimonyIndex == $index}" ng-click="setTestimony($index)" ng-repeat="item in testimonies"></li>
     </ul>
   </section>
 
-  <section class="contact">
-    <h2>Send an Inquiry</h2>
-    <form action="/form_submit/" method="post">
+  <section class="contact" ng-controller="ContactCtrl">
+    <h2>{{header}}</h2>
+    <form>
       <div class="field-set">
         <div class="field">
           <span>Your name:</span><br/>
-          <input type="text" name="name" />
+          <input ng-model="name" type="text" name="name" required/>
         </div>
         <div class="field">
           <span>Email:</span><br/>
-          <input type="text" name="name" />
+          <input ng-model="email" type="email" name="name" required/>
         </div>
       </div>
       <div class="field-set">
         <div class="field">
           <span>Phone Number:</span><br/>
-          <input type="text" name="name" />
+          <input ng-model="number" type="text" name="name" />
         </div>
         <div class="field">
           <span>Company:</span><br/>
-          <input type="text" name="name" />
+          <input ng-model="company" type="text" name="name" />
         </div>
       </div>
       <div class="field-set">
-        <div class="field message">
+      <div class="field message">
           <span>Message:</span><br/>
-          <textarea name="message"></textarea>
+          <textarea ng-model="message" name="message" required></textarea>
         </div>
       </div>
     </form>
-    <a href="#">Submit</a>
+    <a ng-href={{formattedEmail()}}>Submit</a>
   </section>
 
-  <footer>
+  <footer ng-controller="FooterCtrl">
     <blockquote>
-      "I enjoy woodworking and I approach every project with the same
-      enthusiasm that I would for projects in my own home. I look forward
-      to reviewing your ideas and working with you to complete something
-      that you can be truly proud of, which meets your expectations
-      functionally as well as visually."<br/>
-      <span>- David</span>
+      {{endQuote}}<br/>
+      <span>- {{quoteDedication}}</span>
     </blockquote>
     <div class="contact-info">
-      davidrogers.com<br/>
-      (352) 250-8576
+      {{webAddress}}<br/>
+      {{phoneNumber}}
     </div>
   </footer>
 
