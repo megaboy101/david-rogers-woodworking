@@ -35,7 +35,6 @@ module.exports = function(content) {
 
 
 var parseHeader = function(data) {
-  console.log(data);
   return {
     title: data.title,
     subTitle: data.subTitle,

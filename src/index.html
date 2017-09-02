@@ -6,15 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Loeb Site</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Raleway:500i|Tinos:400i" rel="stylesheet">
+  <script src="common.bundle.js"></script>
 </head>
 <body>
-  <header ng-style="{'background-image': 'url('+backgroundImage+')'}" ng-controller="HeaderCtrl">
+  <header ng-cloak ng-show="loaded" ng-controller="HeaderCtrl" ng-style="{'background-image': 'url('+backgroundImage+')'}">
     <h1>{{title}}</h1>
     <hr/>
     <h2>{{subTitle}}</h2>
   </header>
 
-  <section ng-controller="ServiceCtrl" class="services">
+  <section ng-cloak ng-show="loaded" ng-controller="ServiceCtrl" class="services">
     <h1>{{header}}</h1>
     <ul>
       <li ng-repeat="service in services">
@@ -24,7 +25,7 @@
     </ul>
   </section>
 
-  <section ng-controller="GalleryCtrl" class="gallery">
+  <section ng-cloak ng-show="loaded" ng-controller="GalleryCtrl" class="gallery">
     <div class="images">
       <button ng-click="previousImage()" class="button button-left"></button>
       <img id="galleryImg" ng-src="{{currentImage.image}}" alt="No gallery images available">
@@ -33,7 +34,7 @@
     <h2>{{currentImage.category}}</h2>
   </section>
 
-  <section ng-style="{'background-image': 'url('+backgroundImage+')'}" class="testimony" ng-controller="TestimonyCtrl">
+  <section ng-cloak ng-show="loaded" ng-style="{'background-image': 'url('+backgroundImage+')'}" class="testimony" ng-controller="TestimonyCtrl">
     <ul class="quotes">
       <li>
         {{currentTestimony.quote}}<br/>
@@ -45,7 +46,7 @@
     </ul>
   </section>
 
-  <section class="contact" ng-controller="ContactCtrl">
+  <section ng-cloak ng-show="loaded" class="contact" ng-controller="ContactCtrl">
     <h2>{{header}}</h2>
     <form>
       <div class="field-set">
@@ -78,7 +79,7 @@
     <a ng-href={{formattedEmail()}}>Submit</a>
   </section>
 
-  <footer ng-controller="FooterCtrl">
+  <footer ng-cloak ng-show="loaded" ng-controller="FooterCtrl">
     <blockquote>
       {{endQuote}}<br/>
       <span>- {{quoteDedication}}</span>
@@ -89,6 +90,7 @@
     </div>
   </footer>
 
-  <script src="bundle.js"></script>
+
+  <script src="app.bundle.js"></script>
 </body>
 </html>

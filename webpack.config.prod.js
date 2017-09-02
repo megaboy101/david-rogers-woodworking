@@ -7,12 +7,15 @@ const GLOBALS = {
 };
 
 module.exports = {
-	entry: path.join(__dirname, 'src/index.js'),
+	entry: {
+    common: ['angular'],
+    app: path.join(__dirname, 'src/index.js')
+  },
 
 	output: {
 		path: path.join(__dirname + '/dist'),
 		publicPath: '/',
-		filename: 'bundle.js'
+		filename: '[name].bundle.js'
 	},
 
 	target: 'web',
@@ -25,6 +28,10 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      minChunks: Infinity
+    }),
 		new webpack.DefinePlugin(GLOBALS),
 		new ExtractTextPlugin('styles.css'),
 		new webpack.optimize.UglifyJsPlugin()
