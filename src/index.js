@@ -43,24 +43,30 @@ function ServiceCtrl($scope) {
 };
 
 function GalleryCtrl($scope) {
-  var images = [],
-      currentImageIndex = 0;
+  var currentImageIndex = 0;
+  $scope.images = [];
 
   $scope.loaded = false;
 
   requestSection('gallery').then(function(data) {
-    images = data.images;
-    $scope.currentImage = images[currentImageIndex];
+    $scope.images = data.images;
+    $scope.currentImage = $scope.images[currentImageIndex];
     $scope.loaded = true;
     $scope.$apply();
   });
 
   $scope.nextImage = function() {
-    $scope.currentImage = images[currentImageIndex++];
+    if (currentImageIndex + 1 === $scope.images.length)
+      currentImageIndex = -1;
+    currentImageIndex += 1;
+    $scope.currentImage = $scope.images[currentImageIndex];
   }
 
   $scope.previousImage = function() {
-    $scope.currentImage = images[currentImageIndex--];
+    if (currentImageIndex - 1 === -1)
+      currentImageIndex = $scope.images.length;
+    currentImageIndex -= 1;
+    $scope.currentImage = $scope.images[currentImageIndex--];
   }
 };
 

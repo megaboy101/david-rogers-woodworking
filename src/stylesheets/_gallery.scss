@@ -48,6 +48,10 @@
       border-bottom: 80px solid rgba(0, 0, 0, 0);
       border-left: 60px solid $gallery-button-color;
     }
+
+    .button-small {
+      display: none;
+    }
   }
 
   @media screen and (max-width: 750px) {
@@ -71,6 +75,17 @@
         border-bottom: 40px solid rgba(0, 0, 0, 0);
         border-left: 30px solid $gallery-button-color;
       }
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .images button {
+      display: none;
+    }
+
+    .images .button-small {
+      margin-top: 10px 5px;
+      display: inline-block;
     }
   }
 }
