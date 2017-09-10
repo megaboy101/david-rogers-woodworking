@@ -1,6 +1,6 @@
 var client = require('contentful').createClient({
-  space: 'octbv27cogtl',
-  accessToken: 'db16dc7bb4186ff2c5579cde6924a47765c7b1bbc18b65eb6826891e50051a52'
+  space: process.env.CONTENTFUL_SPACE,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 });
 
 module.exports = function(content) {
