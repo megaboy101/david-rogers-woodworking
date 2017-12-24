@@ -1,11 +1,13 @@
 require('./stylesheets/main.scss');
 var angular = require('angular');
-var requestSection = require('./api.js');
+var api = require('./api.js');
 
 var img = document.getElementById('galleryImg');
 img.src = require('./assets/gallery.png');
 
 
+var requestSection = api.requestSection;
+var sendEmail = api.sendEmail
 var app = angular.module('app', []);
 
 app.controller('HeaderCtrl', ['$scope', HeaderCtrl]);
@@ -43,23 +45,23 @@ function ServiceCtrl($scope) {
 };
 
 function GalleryCtrl($scope) {
-  var currentImageIndex = 0;
+  $scope.currentImageIndex = 0;
   $scope.images = [];
 
   $scope.loaded = false;
 
   requestSection('gallery').then(function(data) {
     $scope.images = data.images;
-    $scope.currentImage = $scope.images[currentImageIndex];
+    $scope.currentImage = $scope.images[$scope.currentImageIndex];
     $scope.loaded = true;
     $scope.$apply();
   });
 
   $scope.nextImage = function() {
-    if (currentImageIndex + 1 === $scope.images.length)
-      currentImageIndex = -1;
-    currentImageIndex += 1;
-    $scope.currentImage = $scope.images[currentImageIndex];
+    if ($scope.currentImageIndex + 1 === $scope.images.length)
+      $scope.currentImageIndex = -1;
+    $scope.currentImageIndex += 1;
+    $scope.currentImage = $scope.images[$scope.currentImageIndex];
   }
 
   $scope.previousImage = function() {
@@ -103,13 +105,10 @@ function ContactCtrl($scope) {
     $scope.loaded = true;
   });
 
-  $scope.formattedEmail = function() {
+  $scope.sendEmail = function() {
     var currentMessage = $scope.message;
 
-    return (
-      'mailto:davidrogers111@earthlink.net?subject=Website%20Inquiry&body=' +
-      currentMessage.split(" ").join("%20")
-    );
+    api.sendEmail($scope.name, $scope.number, $scope.company, $scope.email, currentMessage);
   }
 };
 

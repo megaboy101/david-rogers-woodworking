@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.6",
+    "body-parser": "^1.18.1",
     "cheerio": "^1.0.0-rc.2",
     "compression": "^1.7.0",
     "contentful": "^4.6.1",
@@ -21,8 +22,11 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
+    "nodemailer": "^4.1.0",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
+    "sendgrid": "^5.2.3",
+    "sendmail": "^1.2.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5"
